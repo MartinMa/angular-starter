@@ -24,8 +24,7 @@ ___
 
 > An Angular starter kit featuring [Angular 5](https://angular.io), [Ahead of Time Compile](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html), [Router](https://angular.io/docs/ts/latest/guide/router.html), [Forms](https://angular.io/docs/ts/latest/guide/forms.html),
 [Http](https://angular.io/docs/ts/latest/guide/server-communication.html),
-[Services](https://gist.github.com/gdi2290/634101fec1671ee12b3e#_follow_@AngularClass_on_twitter),
-[Tests](https://angular.io/docs/ts/latest/guide/testing.html), [E2E](https://angular.github.io/protractor/#/faq#what-s-the-difference-between-karma-and-protractor-when-do-i-use-which-)), [Karma](https://karma-runner.github.io/), [Protractor](https://angular.github.io/protractor/), [Jasmine](https://github.com/jasmine/jasmine), [Istanbul](https://github.com/gotwarlost/istanbul), [TypeScript](http://www.typescriptlang.org/), [@types](https://www.npmjs.com/~types), [TsLint](http://palantir.github.io/tslint/), [Codelyzer](https://github.com/mgechev/codelyzer), [Hot Module Replacement](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html), and [Webpack](http://webpack.github.io/) by [AngularClass](https://angularclass.com).
+[Services](https://gist.github.com/gdi2290/634101fec1671ee12b3e#_follow_@AngularClass_on_twitter), [TypeScript](http://www.typescriptlang.org/), [@types](https://www.npmjs.com/~types), [TsLint](http://palantir.github.io/tslint/), [Hot Module Replacement](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html), and [Webpack](http://webpack.github.io/) by [AngularClass](https://angularclass.com).
 
 > If you're looking for Angular 1.x please use [NG6-starter](https://github.com/angularclass/NG6-starter)
 > If you're looking to learn about Webpack and ES6 Build Tools check out [ES6-build-tools](https://github.com/AngularClass/ES6-build-tools)
@@ -40,9 +39,6 @@ This seed repo serves as an Angular starter for anyone looking to get up and run
 * Ahead of Time (AoT) compile for rapid page loads of your production builds.
 * Tree shaking to automatically remove unused code from your production bundle.
 * [Webpack DLLs](https://robertknight.github.io/posts/webpack-dll-plugins/) dramatically speed your development builds.
-* Testing Angular code with Jasmine and Karma.
-* Coverage with Istanbul and Karma
-* End-to-end Angular code using Protractor.
 * Type manager with @types
 * Hot Module Replacement with Webpack and [@angularclass/hmr](https://github.com/angularclass/angular-hmr) and [@angularclass/hmr-loader](https://github.com/angularclass/angular-hmr-loader)
 * Angular 4 support via changing package.json and any future Angular versions
@@ -100,9 +96,6 @@ We use the component approach in our starter. This is the new standard for devel
 angular-starter/
  ├──config/                        * our configuration
  |   ├──helpers.js                 * helper functions for our configuration files
- |   ├──spec-bundle.js             * ignore this magic that sets up our Angular testing environment
- |   ├──karma.conf.js              * karma config for our unit tests
- |   ├──protractor.conf.js         * protractor config for our end-to-end tests
  │   ├──webpack.dev.js             * our development webpack config
  │   ├──webpack.prod.js            * our production webpack config
  │   └──webpack.test.js            * our testing webpack config
@@ -115,8 +108,6 @@ angular-starter/
  |   ├──polyfills.ts               * our polyfills file
  │   │
  │   ├──app/                       * WebApp: folder
- │   │   ├──app.component.spec.ts  * a simple test of components in app.component.ts
- │   │   ├──app.e2e.ts             * a simple end-to-end test for /
  │   │   └──app.component.ts       * a simple version of our App component components
  │   │
  │   └──assets/                    * static assets are served here
@@ -127,7 +118,6 @@ angular-starter/
  │
  │
  ├──tslint.json                    * typescript lint config
- ├──typedoc.json                   * typescript documentation generator
  ├──tsconfig.json                  * typescript config used outside webpack
  ├──tsconfig.webpack.json          * config that webpack uses for typescript
  ├──package.json                   * what npm uses to manage its dependencies
@@ -146,8 +136,6 @@ What you need to run this app:
 Once you have those, you should install these globals with `npm install --global`:
 * `webpack` (`npm install --global webpack`)
 * `webpack-dev-server` (`npm install --global webpack-dev-server`)
-* `karma` (`npm install --global karma-cli`)
-* `protractor` (`npm install --global protractor`)
 * `typescript` (`npm install --global typescript`)
 
 ## Installing
@@ -189,40 +177,6 @@ npm run server:dev:hmr
 ### watch and build files
 ```bash
 npm run watch
-```
-
-### run unit tests
-```bash
-npm run test
-```
-
-### watch and run our tests
-```bash
-npm run watch:test
-```
-
-### run end-to-end tests
-```bash
-# update Webdriver (optional, done automatically by postinstall script)
-npm run webdriver:update
-# this will start a test server and launch Protractor
-npm run e2e
-```
-
-### continuous integration (run unit tests and e2e tests together)
-```bash
-# this will test both your JIT and AoT builds
-npm run ci
-```
-
-### run Protractor's elementExplorer (for end-to-end)
-```bash
-npm run e2e:live
-```
-
-### build Docker
-```bash
-npm run build:docker
 ```
 
 # Configuration
@@ -367,113 +321,6 @@ import * as _ from 'lodash';
 * [Chat: AngularClass.slack](http://angularclass.com/member-join/)
 * [Twitter: @AngularClass](https://twitter.com/AngularClass)
 * [Gitter: AngularClass/angular2-webpack-starter](https://gitter.im/angularclass/angular2-webpack-starter)
-
-# Deployment
-
-## Docker
-
-To run project you only need host machine with **operating system** with installed **git** (to clone this repo)
-and [docker](https://www.docker.com/) and thats all - any other software is not needed
-(other software like node.js etc. will be automatically downloaded and installed inside docker container during build step based on dockerfile).
-
-### Install docker
-
-#### MacOS:
-
-`brew cask install docker`
-
-And run docker by Mac bottom menu> launchpad > docker (on first run docker will ask you about password)
-
-#### Ubuntu:
-
-```
-sudo apt-get update
-sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
-sudo apt-get update
-apt-cache policy docker-engine
-sudo apt-get install -y docker-engine
-sudo systemctl status docker  # test:  shoud be ‘active’
-```
-And add your user to docker group (to avoid `sudo` before using `docker` command in future):
-```
-sudo usermod -aG docker $(whoami)
-```
-and logout and login again.
-
-### Build image
-
-Because *node.js* is big memory consumer you need 1-2GB RAM or virtual memory to build docker image
-(it was successfully tested on machine with 512MB RAM + 2GB virtual memory - building process take 7min)
-
-Go to main project folder. To build big (~280MB) image which has cached data and is able to **FAST** rebuild  
-(this is good for testing or staging environment) type:
-
-`docker build -t angular-starter .`
-
-To build **SMALL** (~20MB) image without cache (so each rebuild will take the same amount of time as first build)
-(this is good for production environment) type:
-
-`docker build --squash="true" -t angular-starter .`
-
-The **angular-starter** name used in above commands is only example image name.
-To remove intermediate images created by docker on build process, type:
-
-`docker rmi -f $(docker images -f "dangling=true" -q)`
-
-### Run image
-
-To run created docker image on [localhost:8080](localhost:8080) type (parameter `-p 8080:80` is host:container port mapping)
-
-`docker run --name angular-starter -p 8080:80 angular-starter &`
-
-And that's all, you can open browser and go to [localhost:8080](localhost:8080).
-
-### Build and Run image using docker-compose
-
-To create and run docker image on [localhost:8080](localhost:8080) as part of large project you may use **docker-compose**. Type 
-
-`docker-compose up &`
-
-And that's all, you can open browser and go to [localhost:8080](localhost:8080).
-
-
-### Run image on sub-domain
-
-If you want to run image as virtual-host on sub-domain you must setup [proxy](https://github.com/jwilder/nginx-proxy)
-. You should install proxy and set sub-domain in this way:
-
- ```
- docker pull jwilder/nginx-proxy:alpine
- docker run -d -p 80:80 --name nginx-proxy -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy:alpine
- ```
-
- And in your `/etc/hosts` file (linux) add line: `127.0.0.1 angular-starter.your-domain.com` or in yor hosting add
- folowing DNS record (wildchar `*` is handy because when you add new sub-domain in future, you don't need to touch/add any DNS record)
-
- ```
- Type: CNAME
- Hostname: *.your-domain.com
- Direct to: your-domain.com
- TTL(sec): 43200
- ```
-
-And now you are ready to run image on subdomain by:
-
-```
-docker run -e VIRTUAL_HOST=angular-starter.your-domain.com --name angular-starter angular-starter &
-```
-
-### Login into docker container
-
-`docker exec -t -i angular-starter /bin/bash`
-
-## Netlify
-
-You can quickly create a free site to get started using this
-starter kit in production on [Netlify](https://www.netlify.com/):
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/AngularClass/angular-starter)
 
 ___
 
