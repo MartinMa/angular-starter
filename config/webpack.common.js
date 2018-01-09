@@ -152,7 +152,13 @@ module.exports = function (options) {
         {
           test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
           use: 'file-loader'
-        }
+        },
+
+        // Bootstrap 3
+        {
+          test: /bootstrap-sass\/assets\/javascripts\//,
+          use: 'imports?jQuery=jquery'
+        },
 
       ],
 

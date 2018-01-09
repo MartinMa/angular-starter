@@ -5,6 +5,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { environment } from 'environments/environment';
 import { AppState } from './app.service';
 
+import 'bootstrap-loader';
+
 /**
  * App Component
  * Top Level Component
