@@ -72,6 +72,10 @@ export class AppComponent implements OnInit {
 
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);
+    // jQuery Test
+    $(function() {
+      console.log('jQuery ready event!')
+    });
   }
 
 }
