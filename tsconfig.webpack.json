@@ -23,6 +23,7 @@
     ],
     "types": [
       "hammerjs",
+      "jquery",
       "node"
     ]
   },

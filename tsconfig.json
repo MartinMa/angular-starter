@@ -25,6 +25,7 @@
     "types": [
       "hammerjs",
       "jasmine",
+      "jquery",
       "node",
       "source-map",
       "uglify-js",
