@@ -161,6 +161,12 @@ module.exports = function (options) {
           use: 'imports?jQuery=jquery'
         },
 
+        // Font Awesome
+        {
+          test: /font-awesome\.config\.js/,
+          use: ['style-loader', 'font-awesome-loader']
+        }
+
       ],
 
     },
