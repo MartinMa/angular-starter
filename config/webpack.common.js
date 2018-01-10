@@ -36,6 +36,7 @@ module.exports = function (options) {
 
   const entry = {
     polyfills: './src/polyfills.browser.ts',
+    twbs:      'bootstrap-loader',
     main:      './src/main.browser.ts'
   };
 
