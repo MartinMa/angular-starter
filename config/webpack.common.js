@@ -145,14 +145,28 @@ module.exports = function (options) {
          */
         {
           test: /\.(jpg|png|gif)$/,
-          use: 'file-loader'
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                outputPath: 'assets/img/'
+              }  
+            }
+          ]
         },
 
         /* File loader for supporting fonts, for example, in CSS files.
         */
         {
           test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
-          use: 'file-loader'
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                outputPath: 'assets/fonts/'
+              }  
+            }
+          ]
         },
 
         // Bootstrap 3
