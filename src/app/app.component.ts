@@ -17,27 +17,27 @@ import { AppState } from './app.service';
   ],
   template: `
     <nav>
-      <a [routerLink]=" ['./'] "
+      <a i18n [routerLink]=" ['./'] "
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         Index
       </a>
-      <a [routerLink]=" ['./home'] "
+      <a i18n [routerLink]=" ['./home'] "
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         Home
       </a>
-      <a [routerLink]=" ['./detail'] "
+      <a i18n [routerLink]=" ['./detail'] "
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         Detail
       </a>
-      <a [routerLink]=" ['./barrel'] "
+      <a i18n [routerLink]=" ['./barrel'] "
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         Barrel
       </a>
-      <a [routerLink]=" ['./about'] "
+      <a i18n [routerLink]=" ['./about'] "
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         About
       </a>
-      <a *ngIf="showDevModule" [routerLink]=" ['./dev-module'] "
+      <a i18n *ngIf="showDevModule" [routerLink]=" ['./dev-module'] "
          routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         DevModule
       </a>
@@ -50,7 +50,7 @@ import { AppState } from './app.service';
     <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
 
     <footer>
-      <span>Angular Starter by <a [href]="twitter">@gdi2290</a></span>
+      <span i18n>Angular Starter by <a [href]="twitter">@gdi2290</a></span>
       <div>
         <a [href]="url">
           <img [src]="tipe" width="25%">

@@ -13,9 +13,9 @@ console.log('`Detail` component loaded asynchronously');
 @Component({
   selector: 'detail',
   template: `
-    <h1>Hello from Detail</h1>
+    <h1 18n>Hello from Detail</h1>
     <span>
-      <a [routerLink]=" ['./child-detail'] ">
+      <a 18n [routerLink]=" ['./child-detail'] ">
         Child Detail
       </a>
     </span>
